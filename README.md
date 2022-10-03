@@ -3,7 +3,9 @@
 
 Original:
 
-• FreshLX Profile https://www.planetminecraft.com/member/freshlx/
+• Fresh Discord https://discord.gg/Wxs7JEPMrH
+
+• Fresh Profile https://www.planetminecraft.com/member/freshlx/
 
 • Fresh Animations https://www.planetminecraft.com/texture-pack/fresh-animations-v1-0/
 
