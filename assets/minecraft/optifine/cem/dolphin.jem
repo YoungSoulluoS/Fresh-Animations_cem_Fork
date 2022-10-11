@@ -186,24 +186,24 @@
 			],
 			"animations": [
 				{
-					"body2.rx": "-body.rx +if(is_touching_water, -sin(age/15)/10 +sin(limb_swing/1.6)/6  *(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)), is_on_ground, sin(age/8)/80,                                                                                                                                                    -sin(age/2)/4) +(head_pitch/57.5)",
-					"tail2.rx": "          if(is_touching_water,  cos(age/15)/8  -cos(limb_swing/1.6)/3  *(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)) +clamp(if(head_yaw<=0, head_yaw/4, -head_yaw/4)*clamp(1-limb_speed*4, -1, 1), torad(-30), 0), is_on_ground, torad(-5) -sin(age/8)/60, clamp(torad(-15  ), torad(-30), torad(15)) +cos(age/2)/3)",
-					"tail_fin2.rx": "      if(is_touching_water,  sin(age/15)/5  -sin(limb_swing/1.6)/1.5*(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)) +clamp(if(head_yaw<=0, head_yaw/4, -head_yaw/4)*clamp(1-limb_speed*4, -1, 1), torad(-30), 0), is_on_ground, torad(-10)              , clamp(torad(-22.5), torad(-45), torad(15)) +cos(age/2)/2)",
-					"body2.ry": "if(is_touching_water, 0, 0)",
-					"body2.rz": "    clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-45), torad(45)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), (limb_swing/3), 0)",
-					"tail2.rz": "    clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-30), torad(30)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-20)    , 0)",
-					"tail_fin2.rz": "clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-30), torad(30)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-20)    , 0)",
-					"body2.ty": "-6.5 +if(is_touching_water, cos(age/15)/2 -cos(limb_swing/1.6)*limb_speed, is_on_ground, 2.5, 0)",
+					"body2.rx": "-body.rx +if(is_in_water, -sin(age/15)/10 +sin(limb_swing/1.6)/6  *(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)), is_on_ground, sin(age/8)/80,                                                                                                                                                    -sin(age/2)/4) +(head_pitch/57.5)",
+					"tail2.rx": "          if(is_in_water,  cos(age/15)/8  -cos(limb_swing/1.6)/3  *(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)) +clamp(if(head_yaw<=0, head_yaw/4, -head_yaw/4)*clamp(1-limb_speed*4, -1, 1), torad(-30), 0), is_on_ground, torad(-5) -sin(age/8)/60, clamp(torad(-15  ), torad(-30), torad(15)) +cos(age/2)/3)",
+					"tail_fin2.rx": "      if(is_in_water,  sin(age/15)/5  -sin(limb_swing/1.6)/1.5*(limb_speed +if(head_pitch<=0, -head_pitch/70, head_pitch/70)) +clamp(if(head_yaw<=0, head_yaw/4, -head_yaw/4)*clamp(1-limb_speed*4, -1, 1), torad(-30), 0), is_on_ground, torad(-10)              , clamp(torad(-22.5), torad(-45), torad(15)) +cos(age/2)/2)",
+					"body2.ry": "if(is_in_water, 0, 0)",
+					"body2.rz": "    clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-45), torad(45)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), (limb_swing/3), 0)",
+					"tail2.rz": "    clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-30), torad(30)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-20)    , 0)",
+					"tail_fin2.rz": "clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-30), torad(30)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-20)    , 0)",
+					"body2.ty": "-6.5 +if(is_in_water, cos(age/15)/2 -cos(limb_swing/1.6)*limb_speed, is_on_ground, 2.5, 0)",
 					"body2.tz": "6"
 				},
 				{
-					"top_fin.rz": "if(is_touching_water, 0, is_on_ground, torad(20), 0) +clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-15), torad(15)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(20), 0)",
+					"top_fin.rz": "if(is_in_water, 0, is_on_ground, torad(20), 0) +clamp(head_yaw/4*clamp(1-limb_speed*4, -1, 1), torad(-15), torad(15)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(20), 0)",
 					"right_fin2.rx": "right_fin.rx",
 					"left_fin2.rx": "  left_fin.rx",
 					"right_fin2.ry": "right_fin.ry",
 					"left_fin2.ry": "  left_fin.ry",
-					"right_fin2.rz": "right_fin.rz +if(is_touching_water, -sin(age/15)/16 +sin(limb_swing/1.6)/8*limb_speed, is_on_ground, -right_fin.rz -torad(98), -cos(age/2)/4 -torad(15) +(head_pitch/57.5)/1.5) +clamp(head_yaw/4, torad(-30), torad(30)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-30), 0)",
-					"left_fin2.rz": "  left_fin.rz +if(is_touching_water,  sin(age/15)/16 -sin(limb_swing/1.6)/8*limb_speed, is_on_ground, - left_fin.rz +torad(98),  cos(age/2)/4 +torad(15) -(head_pitch/57.5)/1.5) +clamp(head_yaw/4, torad(-30), torad(30)) +if(!is_touching_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-30), 0)"
+					"right_fin2.rz": "right_fin.rz +if(is_in_water, -sin(age/15)/16 +sin(limb_swing/1.6)/8*limb_speed, is_on_ground, -right_fin.rz -torad(98), -cos(age/2)/4 -torad(15) +(head_pitch/57.5)/1.5) +clamp(head_yaw/4, torad(-30), torad(30)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-30), 0)",
+					"left_fin2.rz": "  left_fin.rz +if(is_in_water,  sin(age/15)/16 -sin(limb_swing/1.6)/8*limb_speed, is_on_ground, - left_fin.rz +torad(98),  cos(age/2)/4 +torad(15) -(head_pitch/57.5)/1.5) +clamp(head_yaw/4, torad(-30), torad(30)) +if(!is_in_water&&!is_on_ground&&between(sin(age/128)*20, 16, 20), torad(-30), 0)"
 				},
 				{
 					"right_eye.tz": "-3 +clamp( (head_yaw*2)*clamp(-1+limb_speed*4, -1, 1), 0, 1)",

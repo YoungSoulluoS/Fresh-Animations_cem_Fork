@@ -16,11 +16,11 @@
 			],
 			"animations": [
 				{
-					"head.rx": "(head_pitch/57.5)/1.5 -torad(15)*limb_speed +if(right_arm.rx<torad(-70), torad(10), 0) -sin(pi*swing_progress)/3 +if(!is_riding&&!is_on_ground&&is_touching_water, torad(-10), 0)",
+					"head.rx": "(head_pitch/57.5)/1.5 -torad(15)*limb_speed +if(right_arm.rx<torad(-70), torad(10), 0) -sin(pi*swing_progress)/3 +if(!is_riding&&!is_on_ground&&is_in_water, torad(-10), 0)",
 					"head.ry": "( head_yaw /57.5)/1.8 -sin(torad(180)+limb_swing/1.3)/3*limb_speed/1.2 +sin(pi*swing_progress)/2",
 					"head.rz": "(sin(pi*swing_progress)/3)",
 					"head.tx": "                                         sin(torad( 45)+limb_swing/1.3 )    *limb_speed/1.2 +sin(pi*swing_progress)*3",
-					"head.ty": "if(!is_riding&&!is_on_ground&&is_touching_water, 6, 0.3) +sin(torad(135)+limb_swing/0.65)*1.5*limb_speed +(1*limb_speed) +sin(pi*swing_progress)*2 +sin((limb_swing/2+age)/80*pi*2)/4",
+					"head.ty": "if(!is_riding&&!is_on_ground&&is_in_water, 6, 0.3) +sin(torad(135)+limb_swing/0.65)*1.5*limb_speed +(1*limb_speed) +sin(pi*swing_progress)*2 +sin((limb_swing/2+age)/80*pi*2)/4",
 					"head.tz": "(-2*limb_speed) +sin((limb_swing/2+age)/80*-pi*2)/4 +sin(-pi*swing_progress)*4",
 					"head2.rx": "head.rx +sin((limb_swing/2+age)/80*-pi*2)/40",
 					"head2.ry": "head.ry",
@@ -33,12 +33,12 @@
 					"body.tz": "head.tz"
 				},
 				{
-					"right_arm.rx": "if(!is_riding&&!is_on_ground&&is_touching_water, -sin((limb_swing/2+age)/12*pi)/1.5, if(right_arm.rx<torad(-90), torad(-120) +sin(torad(180)+limb_swing/1.3)/4*limb_speed/1.2, if(is_riding, torad(-45), sin(torad(180)+limb_swing/1.3)*limb_speed))) +(head_yaw/57.5)/8 -(sin(pi*2*swing_progress))",
-					"left_arm.rx": " if(!is_riding&&!is_on_ground&&is_touching_water,  sin((limb_swing/2+age)/12*pi)/1.5, if( left_arm.rx<torad(-90), torad(-120) +sin(torad( 0 )+limb_swing/1.3)/4*limb_speed/1.2, if(is_riding, torad(-45), sin(torad( 0 )+limb_swing/1.3)*limb_speed))) -(head_yaw/57.5)/8 +(sin(pi*swing_progress)*2)",
+					"right_arm.rx": "if(!is_riding&&!is_on_ground&&is_in_water, -sin((limb_swing/2+age)/12*pi)/1.5, if(right_arm.rx<torad(-90), torad(-120) +sin(torad(180)+limb_swing/1.3)/4*limb_speed/1.2, if(is_riding, torad(-45), sin(torad(180)+limb_swing/1.3)*limb_speed))) +(head_yaw/57.5)/8 -(sin(pi*2*swing_progress))",
+					"left_arm.rx": " if(!is_riding&&!is_on_ground&&is_in_water,  sin((limb_swing/2+age)/12*pi)/1.5, if( left_arm.rx<torad(-90), torad(-120) +sin(torad( 0 )+limb_swing/1.3)/4*limb_speed/1.2, if(is_riding, torad(-45), sin(torad( 0 )+limb_swing/1.3)*limb_speed))) -(head_yaw/57.5)/8 +(sin(pi*swing_progress)*2)",
 					"right_arm.ry": "clamp(torad(-15)+limb_speed, torad(-15), 0) +if(right_arm.rx<torad(-70), torad( 10), -sin(limb_swing/1.3)/2*limb_speed/1.2) +sin((limb_swing/2+age)/80*pi*2+torad(90))/20 +(sin(-pi/2*swing_progress*2)/4)",
 					"left_arm.ry": " clamp(torad( 15)-limb_speed, 0, torad( 15)) +if( left_arm.rx<torad(-70), torad(-10), -sin(limb_swing/1.3)/2*limb_speed/1.2) +sin((limb_swing/2+age)/80*pi*2-torad(90))/20",
-					"right_arm.rz": "torad( 10) +if(!is_riding&&!is_on_ground&&is_touching_water, torad( 20) +sin((limb_swing/2+age)/12*pi+torad(90))/3, if(right_arm.rx<torad(-70), torad(-30), -sin(limb_swing/1.3)/5*limb_speed/1.2)) -(head_pitch/57.5)/14 +(sin(-pi+torad(90)*swing_progress*2)/2)",
-					"left_arm.rz": " torad(-10) +if(!is_riding&&!is_on_ground&&is_touching_water, torad(-20) +sin((limb_swing/2+age)/12*pi+torad(90))/3, if( left_arm.rx<torad(-70), torad( 30), -sin(limb_swing/1.3)/5*limb_speed/1.2)) +(head_pitch/57.5)/14 -(sin(pi*swing_progress)/2)",
+					"right_arm.rz": "torad( 10) +if(!is_riding&&!is_on_ground&&is_in_water, torad( 20) +sin((limb_swing/2+age)/12*pi+torad(90))/3, if(right_arm.rx<torad(-70), torad(-30), -sin(limb_swing/1.3)/5*limb_speed/1.2)) -(head_pitch/57.5)/14 +(sin(-pi+torad(90)*swing_progress*2)/2)",
+					"left_arm.rz": " torad(-10) +if(!is_riding&&!is_on_ground&&is_in_water, torad(-20) +sin((limb_swing/2+age)/12*pi+torad(90))/3, if( left_arm.rx<torad(-70), torad( 30), -sin(limb_swing/1.3)/5*limb_speed/1.2)) +(head_pitch/57.5)/14 -(sin(pi*swing_progress)/2)",
 					"right_arm.tx": "-5 +body.tx -(head_yaw/57.5)/2 +(sin(pi*swing_progress)*2)",
 					"left_arm.tx": "  5 +body.tx +(head_yaw/57.5)/2 -(sin(pi*swing_progress)*2)",
 					"right_arm.ty": "2 +body.ty +sin((limb_swing/2+age)/80*pi*2-torad(60))/5",
@@ -62,16 +62,16 @@
 					"left.tz": "left_arm.tz"
 				},
 				{
-					"right_leg.rx": "if(is_riding, torad(-80), !is_riding&&!is_on_ground&&is_touching_water, sin((limb_swing/2+age)/12*pi+torad( 0 ))/1.5, clamp(torad(-5 )+limb_speed, torad(-5 ), 0) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(sin(torad( 0 )+limb_swing/1.3)/6 +sin(torad( 0 )+limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) -(head_yaw/57.5)/30",
-					"left_leg.rx": " if(is_riding,  torad(-80), !is_riding&&!is_on_ground&&is_touching_water, sin((limb_swing/2+age)/12*pi+torad(180))/1.5, clamp(torad( 5 )-limb_speed, 0, torad( 5 )) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(sin(torad(180)+limb_swing/1.3)/6 +sin(torad(180)+limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) +(head_yaw/57.5)/30",
+					"right_leg.rx": "if(is_riding, torad(-80), !is_riding&&!is_on_ground&&is_in_water, sin((limb_swing/2+age)/12*pi+torad( 0 ))/1.5, clamp(torad(-5 )+limb_speed, torad(-5 ), 0) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(sin(torad( 0 )+limb_swing/1.3)/6 +sin(torad( 0 )+limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) -(head_yaw/57.5)/30",
+					"left_leg.rx": " if(is_riding,  torad(-80), !is_riding&&!is_on_ground&&is_in_water, sin((limb_swing/2+age)/12*pi+torad(180))/1.5, clamp(torad( 5 )-limb_speed, 0, torad( 5 )) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(sin(torad(180)+limb_swing/1.3)/6 +sin(torad(180)+limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) +(head_yaw/57.5)/30",
 					"right_leg.ry": "if(is_riding, torad( 20), clamp(torad( 15)-limb_speed, 0, torad( 15))) +torad( 5)*limb_speed",
 					"left_leg.ry": " if(is_riding,  torad(-20), clamp(torad(-20)+limb_speed, torad(-20), 0)) +torad(-5)*limb_speed",
 					"right_leg.rz": "if(is_riding, 0, clamp(torad( 2 )-limb_speed, 0, torad( 2 ))+torad( 3)) +sin(limb_swing/1.3)/8*limb_speed/1.2",
 					"left_leg.rz": " if(is_riding,  0, clamp(torad(-2 )+limb_speed, torad(-2 ), 0)+torad(-3)) +sin(limb_swing/1.3)/8*limb_speed/1.2",
 					"right_leg.tx": "-2 -sin((limb_swing/2+age)/80*pi*2)/10",
 					"left_leg.tx": "  2 +sin((limb_swing/2+age)/80*pi*2)/10",
-					"right_leg.ty": "0.3 +clamp(12 +sin(torad( 90)+limb_swing/1.3)*4*limb_speed +(1*limb_speed), 0, 12.2) +if(!is_riding&&!is_on_ground&&is_touching_water, head.ty +(-sin(pi*swing_progress)*2 -sin((limb_swing/2+age)/80*pi*2)/4), 0)",
-					"left_leg.ty": " 0.3 +clamp(12 +sin(torad(-90)+limb_swing/1.3)*4*limb_speed +(1*limb_speed), 0, 12.2) +if(!is_riding&&!is_on_ground&&is_touching_water, head.ty +(-sin(pi*swing_progress)*2 -sin((limb_swing/2+age)/80*pi*2)/4), 0)",
+					"right_leg.ty": "0.3 +clamp(12 +sin(torad( 90)+limb_swing/1.3)*4*limb_speed +(1*limb_speed), 0, 12.2) +if(!is_riding&&!is_on_ground&&is_in_water, head.ty +(-sin(pi*swing_progress)*2 -sin((limb_swing/2+age)/80*pi*2)/4), 0)",
+					"left_leg.ty": " 0.3 +clamp(12 +sin(torad(-90)+limb_swing/1.3)*4*limb_speed +(1*limb_speed), 0, 12.2) +if(!is_riding&&!is_on_ground&&is_in_water, head.ty +(-sin(pi*swing_progress)*2 -sin((limb_swing/2+age)/80*pi*2)/4), 0)",
 					"right_leg.tz": "clamp((sin(torad( 90)+limb_swing/1.3)*6)*limb_speed +(3*limb_speed), -6, 1) -0.2 +if(is_riding, 0, sin((limb_swing/2+age)/80*pi*2+torad(180))/3) +(head_yaw/57.5)/2",
 					"left_leg.tz": " clamp((sin(torad(-90)+limb_swing/1.3)*6)*limb_speed +(3*limb_speed), -6, 1) -0.2 +if(is_riding, 0, sin((limb_swing/2+age)/80*pi*2+torad(180))/3) -(head_yaw/57.5)/2"
 				},

@@ -33,7 +33,7 @@
 			"animations": [
 				{
 					"attack.rx": "(head.rx-torad(50))",
-					"sniff.rx": "clamp(-2 +sin((age+limb_swing)/60)*3, 0, 1)"
+					"sniff.rx": "clamp(-2 +sin(age/60 + limb_swing/60)*3, 0, 1)"
 				},
 				{
 					"body.rx": "torad(-3)                       +if(limb_speed>=if(is_child, 0.7, 0.87), -sin(torad(20)+limb_swing/if(is_child, 2.2, 1.2))/10*limb_speed, sin(limb_swing/if(is_child, 1.8, 1.2)*2)/30*clamp(limb_speed*6, 0, 1) ) +cos((age+limb_swing)*if(is_child, 1.5, 1)/12)/60 +attack.rx/5",
@@ -46,14 +46,11 @@
 					"head2.ry": "          clamp( torad(head_yaw)/1.5*(1-sniff.rx) +sin(((age+limb_swing))/16 +sin(torad(45)+((age+limb_swing))/8)/3)/3*sniff.rx*clamp(1-limb_speed*2, 0, 1), torad(-60), torad(60))",
 					"head2.rz": "-body.rz +clamp(-torad(head_yaw)/6  *(1-sniff.rx) +sin(((age+limb_swing))/16 +sin(torad(45)+((age+limb_swing))/8)/3)/4*sniff.rx*clamp(1-limb_speed*2, 0, 1), torad(-10), torad(10)) -attack.rx/6*torad(head_yaw)",
 					"head2.tx": "          clamp(-torad(head_yaw)*3, -3, 3)*(1-sniff.rx) -attack.rx*3*torad(head_yaw)",
-					"head2.ty": "-21  if(is_child, -11, 0)     +if(limb_speed>=if(is_child, 0.7, 0.87), -1*limb_speed -sin(limb_swing/if(is_child, 2.2, 1.2))*limb_speed, 0) -attack.rx*if(is_child, 6, 3)",
-					"head2.tz": "-8.5 if(is_child, 0, 1)",
-					"baby_head.rx": "head2.rx",
-					"baby_head.ry": "head2.ry",
-					"baby_head.rz": "head2.rz",
-					"baby_head.tx": "head2.tx",
-					"baby_head.ty": "head2.ty",
-					"baby_head.tz": "-8.5 +3.5/if(is_child, 1, 0)"
+					"head2.ty": "-21  +if(is_child, -5.5, 0)     +if(limb_speed>=if(is_child, 0.7, 0.87), -1*limb_speed -sin(limb_swing/if(is_child, 2.2, 1.2))*limb_speed, 0) -attack.rx*if(is_child, 6, 3)",
+					"head2.tz": "-8.5 +if(is_child, 7, 0)",
+					"head2.sx": "if(is_child, 1.6, 1)",
+					"head2.sy": "if(is_child, 1.6, 1)",
+					"head2.sz": "if(is_child, 1.6, 1)"
 				},
 				{
 					"front_left_leg.rx": " if(limb_speed>=if(is_child, 0.7, 0.87),  sin(           limb_swing/if(is_child, 2.2, 1.2))/2  *if(is_child, 1.2, 1)*limb_speed +clamp(-cos(           limb_swing/if(is_child, 2.2, 1.2))/2, 0, torad( 30))*limb_speed, -sin(          limb_swing/if(is_child, 1.8, 1.2))/4   +clamp( cos(          limb_swing/if(is_child, 1.8, 1.2))/2, 0, torad( 40))*clamp(limb_speed*6, 0, 1) ) +torad(2) +sin((age+limb_swing)*if(is_child, 1.5, 1)/12 +cos((age+limb_swing)*if(is_child, 1.5, 1)/12)/2)/40 -attack.rx/2",
@@ -88,15 +85,9 @@
 					"right_ear2.ry": "torad(-30) +clamp( torad(head_yaw)/3, 0, torad( 30)) +sin(torad(-45)+((age+limb_swing))/16 +sin(((age+limb_swing))/8)/3)/5*sniff.rx*clamp(1-limb_speed*2, 0, 1)",
 					"left_ear2.rz": " clamp(torad( 45) +if(limb_speed>=if(is_child, 0.7, 0.87), 0, -sin(limb_swing/if(is_child, 1.8, 1.2)*2)/8 *clamp(limb_speed*6, 0, 1) ) +torad(head_yaw)/3*clamp(1-limb_speed, 0, 1), torad(-20), torad( 60)) -cos((age+limb_swing)*if(is_child, 1.5, 1)/12 +sin((age+limb_swing)*if(is_child, 1.5, 1)/12))/12",
 					"right_ear2.rz": "clamp(torad(-45) +if(limb_speed>=if(is_child, 0.7, 0.87), 0,  sin(limb_swing/if(is_child, 1.8, 1.2)*2)/8 *clamp(limb_speed*6, 0, 1) ) +torad(head_yaw)/3*clamp(1-limb_speed, 0, 1), torad(-60), torad( 20)) +cos((age+limb_swing)*if(is_child, 1.5, 1)/12 +sin((age+limb_swing)*if(is_child, 1.5, 1)/12))/12",
-					"mane2.ry": "if(limb_speed>=if(is_child, 0.7, 0.87),  cos(limb_swing/if(is_child, 2.2, 1.2))/20,  sin(limb_swing/if(is_child, 1.8, 1.2))/20) +torad(head_yaw)/20",
-					"mane2.rz": "if(limb_speed>=if(is_child, 0.7, 0.87), -cos(limb_swing/if(is_child, 2.2, 1.2))/4 , -sin(limb_swing/if(is_child, 1.8, 1.2))/4 ) -torad(head_yaw)/4 -sin((age+limb_swing)*if(is_child, 1.5, 1)/12)/30 +sin(torad(-90)+(age+limb_swing)/16 +sin(torad(45)+(age+limb_swing)/8)/3)/4*sniff.rx*clamp(1-limb_speed*2, 0, 1) -attack.rx/2",
-					"mane2.tz": "-2.5 +if(is_child, 4, 0)",
-					"baby_left_ear.rx": " left_ear2.rx",
-					"baby_right_ear.rx": "right_ear2.rx",
-					"baby_left_ear.ry": " left_ear2.ry",
-					"baby_right_ear.ry": "right_ear2.ry",
-					"baby_left_ear.rz": " left_ear2.rz",
-					"baby_right_ear.rz": "right_ear2.rz"
+					"mane3.ry": "if(limb_speed>=if(is_child, 0.7, 0.87),  cos(limb_swing/if(is_child, 2.2, 1.2))/20,  sin(limb_swing/if(is_child, 1.8, 1.2))/20) +torad(head_yaw)/20",
+					"mane3.rz": "if(limb_speed>=if(is_child, 0.7, 0.87), -cos(limb_swing/if(is_child, 2.2, 1.2))/4 , -sin(limb_swing/if(is_child, 1.8, 1.2))/4 ) -torad(head_yaw)/4 -sin((age+limb_swing)*if(is_child, 1.5, 1)/12)/30 +sin(torad(-90)+(age+limb_swing)/16 +sin(torad(45)+(age+limb_swing)/8)/3)/4*sniff.rx*clamp(1-limb_speed*2, 0, 1) -attack.rx/2",
+					"mane3.tz": "-2.5 +if(is_child, 4, 0)"
 				}
 			]
 		},
@@ -106,15 +97,7 @@
 			"invertAxis": "xy",
 			"translate": [0, -17, -4.5],
 			"boxes": [
-				{
-					"coordinates": [-8, 10, -8.5, 16, 14, 26],
-					"uvNorth": [27, 27, 43, 41],
-					"uvEast": [1, 27, 27, 41],
-					"uvSouth": [69, 27, 85, 41],
-					"uvWest": [43, 27, 69, 41],
-					"uvUp": [27, 1, 43, 27],
-					"uvDown": [43, 27, 59, 1]
-				}
+				{"coordinates": [-8, 10, -8.5, 16, 14, 26], "textureOffset": [1, 1]}
 			],
 			"submodels": [
 				{
@@ -123,15 +106,7 @@
 					"translate": [0, 21, -8.5],
 					"rotate": [-50, 0, 0],
 					"boxes": [
-						{
-							"coordinates": [-7, -3, -19, 14, 6, 19],
-							"uvNorth": [80, 20, 94, 26],
-							"uvEast": [61, 20, 80, 26],
-							"uvSouth": [113, 20, 127, 26],
-							"uvWest": [94, 20, 113, 26],
-							"uvUp": [80, 1, 94, 20],
-							"uvDown": [94, 20, 108, 1]
-						}
+						{"coordinates": [-7, -3, -19, 14, 6, 19], "textureOffset": [61, 1]}
 					],
 					"submodels": [
 						{
@@ -139,24 +114,8 @@
 							"invertAxis": "xy",
 							"translate": [0, 0, -5],
 							"boxes": [
-								{
-									"coordinates": [-8, -2, -8, 2, 11, 2],
-									"uvNorth": [3, 15, 5, 26],
-									"uvEast": [1, 15, 3, 26],
-									"uvSouth": [7, 15, 9, 26],
-									"uvWest": [5, 15, 7, 26],
-									"uvUp": [3, 13, 5, 15],
-									"uvDown": [5, 15, 7, 13]
-								},
-								{
-									"coordinates": [6, -2, -8, 2, 11, 2],
-									"uvNorth": [12, 15, 14, 26],
-									"uvEast": [10, 15, 12, 26],
-									"uvSouth": [16, 15, 18, 26],
-									"uvWest": [14, 15, 16, 26],
-									"uvUp": [12, 13, 14, 15],
-									"uvDown": [14, 15, 16, 13]
-								}
+								{"coordinates": [-8, -2, -8, 2, 11, 2], "textureOffset": [1, 13]},
+								{"coordinates": [6, -2, -8, 2, 11, 2], "textureOffset": [10, 13]}
 							]
 						},
 						{
@@ -165,15 +124,7 @@
 							"translate": [6.75, 1.75, -2.5],
 							"rotate": [0, 0, -45],
 							"boxes": [
-								{
-									"coordinates": [0, -1, -2, 6, 1, 4],
-									"uvNorth": [5, 5, 11, 6],
-									"uvEast": [1, 5, 5, 6],
-									"uvSouth": [15, 5, 21, 6],
-									"uvWest": [11, 5, 15, 6],
-									"uvUp": [5, 1, 11, 5],
-									"uvDown": [11, 5, 17, 1]
-								}
+								{"coordinates": [0, -1, -2, 6, 1, 4], "textureOffset": [1, 1]}
 							]
 						},
 						{
@@ -182,111 +133,17 @@
 							"translate": [-6.75, 1.75, -2.5],
 							"rotate": [0, 0, 45],
 							"boxes": [
-								{
-									"coordinates": [-6, -1, -2, 6, 1, 4],
-									"uvNorth": [5, 10, 11, 11],
-									"uvEast": [1, 10, 5, 11],
-									"uvSouth": [15, 10, 21, 11],
-									"uvWest": [11, 10, 15, 11],
-									"uvUp": [5, 6, 11, 10],
-									"uvDown": [11, 10, 17, 6]
-								}
+								{"coordinates": [-6, -1, -2, 6, 1, 4], "textureOffset": [1, 6]}
 							]
 						}
 					]
 				},
 				{
-					"id": "baby_head",
-					"invertAxis": "xy",
-					"translate": [0, 21.25, -9.25],
-					"rotate": [-50, 0, 0],
-					"boxes": [
-						{
-							"coordinates": [-11.2, -5.49577, -29.56515, 22, 10, 30],
-							"uvNorth": [80, 20, 94, 26],
-							"uvEast": [61, 20, 80, 26],
-							"uvSouth": [113, 20, 127, 26],
-							"uvWest": [94, 20, 113, 26],
-							"uvUp": [80, 1, 94, 20],
-							"uvDown": [94, 20, 108, 1]
-						}
-					],
-					"submodels": [
-						{
-							"id": "baby_tusks",
-							"invertAxis": "xy",
-							"translate": [0, -0.69577, -7.16515],
-							"boxes": [
-								{
-									"coordinates": [-12.8, -3.2, -12.8, 3, 18, 3],
-									"uvNorth": [3, 15, 5, 26],
-									"uvEast": [1, 15, 3, 26],
-									"uvSouth": [7, 15, 9, 26],
-									"uvWest": [5, 15, 7, 26],
-									"uvUp": [3, 13, 5, 15],
-									"uvDown": [5, 15, 7, 13]
-								},
-								{
-									"coordinates": [9.6, -3.2, -12.8, 3, 18, 3],
-									"uvNorth": [12, 15, 14, 26],
-									"uvEast": [10, 15, 12, 26],
-									"uvSouth": [16, 15, 18, 26],
-									"uvWest": [14, 15, 16, 26],
-									"uvUp": [12, 13, 14, 15],
-									"uvDown": [14, 15, 16, 13]
-								}
-							]
-						},
-						{
-							"id": "baby_right_ear",
-							"invertAxis": "xy",
-							"translate": [10.8, 2.10423, -3.16515],
-							"rotate": [0, 0, -45],
-							"boxes": [
-								{
-									"coordinates": [0, -1.6, -3.2, 10, 2, 6],
-									"uvNorth": [5, 5, 11, 6],
-									"uvEast": [1, 5, 5, 6],
-									"uvSouth": [15, 5, 21, 6],
-									"uvWest": [11, 5, 15, 6],
-									"uvUp": [5, 1, 11, 5],
-									"uvDown": [11, 5, 17, 1]
-								}
-							]
-						},
-						{
-							"id": "baby_left_ear",
-							"invertAxis": "xy",
-							"translate": [-10.8, 2.10423, -3.16515],
-							"rotate": [0, 0, 45],
-							"boxes": [
-								{
-									"coordinates": [-9.6, -1.6, -3.2, 10, 2, 6],
-									"uvNorth": [5, 10, 11, 11],
-									"uvEast": [1, 10, 5, 11],
-									"uvSouth": [15, 10, 21, 11],
-									"uvWest": [11, 10, 15, 11],
-									"uvUp": [5, 6, 11, 10],
-									"uvDown": [11, 10, 17, 6]
-								}
-							]
-						}
-					]
-				},
-				{
-					"id": "mane2",
+					"id": "mane3",
 					"invertAxis": "xy",
 					"translate": [0, 22, -2.5],
 					"boxes": [
-						{
-							"coordinates": [0, -1, -9, 0, 10, 19],
-							"uvNorth": [109, 52, 109, 62],
-							"uvEast": [90, 52, 109, 62],
-							"uvSouth": [128, 52, 128, 62],
-							"uvWest": [109, 52, 128, 62],
-							"uvUp": [109, 33, 109, 52],
-							"uvDown": [109, 52, 109, 33]
-						}
+						{"coordinates": [0, -1, -9, 0, 10, 19], "textureOffset": [90, 33]}
 					]
 				}
 			]
@@ -297,15 +154,7 @@
 			"invertAxis": "xy",
 			"translate": [4, -2, 4.5],
 			"boxes": [
-				{
-					"coordinates": [-7, 0, -7.5, 6, 14, 6],
-					"uvNorth": [47, 48, 53, 62],
-					"uvEast": [41, 48, 47, 62],
-					"uvSouth": [59, 48, 65, 62],
-					"uvWest": [53, 48, 59, 62],
-					"uvUp": [47, 42, 53, 48],
-					"uvDown": [53, 48, 59, 42]
-				}
+				{"coordinates": [-7, 0, -7.5, 6, 14, 6], "textureOffset": [41, 42]}
 			]
 		},
 		{
@@ -314,15 +163,7 @@
 			"invertAxis": "xy",
 			"translate": [-4, -2, 4.5],
 			"boxes": [
-				{
-					"coordinates": [1, 0, -7.5, 6, 14, 6],
-					"uvNorth": [72, 48, 78, 62],
-					"uvEast": [66, 48, 72, 62],
-					"uvSouth": [84, 48, 90, 62],
-					"uvWest": [78, 48, 84, 62],
-					"uvUp": [72, 42, 78, 48],
-					"uvDown": [78, 48, 84, 42]
-				}
+				{"coordinates": [1, 0, -7.5, 6, 14, 6], "textureOffset": [66, 42]}
 			]
 		},
 		{
@@ -331,15 +172,7 @@
 			"invertAxis": "xy",
 			"translate": [4.5, -2, -14],
 			"boxes": [
-				{
-					"coordinates": [-7, 0, 11.5, 5, 11, 5],
-					"uvNorth": [5, 50, 10, 61],
-					"uvEast": [0, 50, 5, 61],
-					"uvSouth": [15, 50, 20, 61],
-					"uvWest": [10, 50, 15, 61],
-					"uvUp": [5, 45, 10, 50],
-					"uvDown": [10, 50, 15, 45]
-				}
+				{"coordinates": [-7, 0, 11.5, 5, 11, 5], "textureOffset": [0, 45]}
 			]
 		},
 		{
@@ -348,15 +181,7 @@
 			"invertAxis": "xy",
 			"translate": [-4.5, -2, -14],
 			"boxes": [
-				{
-					"coordinates": [2, 0, 11.5, 5, 11, 5],
-					"uvNorth": [26, 50, 31, 61],
-					"uvEast": [21, 50, 26, 61],
-					"uvSouth": [36, 50, 41, 61],
-					"uvWest": [31, 50, 36, 61],
-					"uvUp": [26, 45, 31, 50],
-					"uvDown": [31, 50, 36, 45]
-				}
+				{"coordinates": [2, 0, 11.5, 5, 11, 5], "textureOffset": [21, 45]}
 			]
 		},
 		{
