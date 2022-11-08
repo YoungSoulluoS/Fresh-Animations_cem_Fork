@@ -41,12 +41,6 @@
 					"body.tz": "head.tz"
 				},
 				{
-					"right_arm.rx": "if(crossbow.rx==1, right_arm.rx +torad(60)*limb_speed +torad(-10), -sin(limb_swing/1.3)*limb_speed)) -torad(head_pitch)*clamp(limb_speed*2, 0, 1) +sin((limb_swing/2+age)/60*pi*2)/80",
-					"left_arm.rx": " if(crossbow.rx==1,  left_arm.rx +torad(60)*limb_speed +torad(-10),  sin(limb_swing/1.3)*limb_speed)) -torad(head_pitch)*clamp(limb_speed*2, 0, 1) +sin((limb_swing/2+age)/60*pi*2)/80",
-					"right_arm.ry": "if(crossbow.rx==1, right_arm.ry +torad(-20)*limb_speed, torad(head_yaw)/8 + clamp(torad(-25)+limb_speed, torad(-25), 0) +sin((limb_swing/2+age)/80*pi*2+torad(90))/40)) -sin(limb_swing/1.3)/2*limb_speed/1.2",
-					"left_arm.ry": " if(crossbow.rx==1,  left_arm.ry +torad( 20)*limb_speed, torad(head_yaw)/8 + clamp(torad( 5 )-limb_speed, 0, torad( 5 )) +sin((limb_swing/2+age)/80*pi*2+torad(90))/40)) -sin(limb_swing/1.3)/2*limb_speed/1.2",
-					"right_arm.rz": "if(crossbow.rx==1, 0, if(is_riding, torad(20), torad( 10))) -sin(torad(90)+limb_swing/1.3)/5*limb_speed/1.2 +clamp(-torad(head_pitch)/8, 0, pi/6)",
-					"left_arm.rz": " if(crossbow.rx==1, 0, if(is_riding, torad(-5), torad(-10))) -sin(torad(90)+limb_swing/1.3)/5*limb_speed/1.2 +clamp( torad(head_pitch)/8,-pi/6, 0)",
 					"right_arm.tx": "-5 +body.tx +if(crossbow.rx==1, 1 +clamp(-head_yaw/10, -1,  4), 0 )",
 					"left_arm.tx": "  5 +body.tx +if(crossbow.rx==1, 1 +clamp(-head_yaw/10, -4, -2), 0 )",
 					"right_arm.ty": "2 +body.ty +sin((limb_swing/2+age)/80*pi*2-torad(60))/5",
@@ -55,12 +49,12 @@
 					"left_arm.tz": " (-2*limb_speed) +if(crossbow.rx==1, -2 +clamp(-head_yaw/15, -3, 6) -sin((limb_swing/2+age)/80*-pi*2+torad(90))/4, -torad(head_yaw) +if(is_riding, -3, 0)) +clamp( 1-limb_speed*1.5,  0, 1) +sin(limb_swing/1.3)*3*limb_speed/1.2 +sin((limb_swing/2+age)/80*-pi*2)/4"
 				},
 				{
-					"right_leg.rx": " right_leg.rx, !is_riding&&!is_on_ground&&is_in_water,  sin((limb_swing/2+age)/12*pi)/1.5, clamp(torad(-5 )+limb_speed  , torad(-5 ), 0) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp( sin(limb_swing/1.3)/6 +sin(limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) -torad(head_yaw)/30",
-					"left_leg.rx": "   left_leg.rx, !is_riding&&!is_on_ground&&is_in_water, -sin((limb_swing/2+age)/12*pi)/1.5, clamp(torad( 5 )-limb_speed  , 0, torad( 5 )) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(-sin(limb_swing/1.3)/6 -sin(limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) +torad(head_yaw)/30",
-					"right_leg.ry": " right_leg.ry, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad( 5 )-limb_speed  , 0, torad( 5 ))) +torad( 5)*limb_speed",
-					"left_leg.ry": "  left_leg.ry, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad(-30)+limb_speed*2, torad(-30), 0)) +torad(-5)*limb_speed",
-					"right_leg.rz": " right_leg.rz, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad( 0 )-limb_speed  , 0, torad( 0 )) +torad( 3)) +sin(limb_swing/1.3)/12*limb_speed/1.2",
-					"left_leg.rz": "   left_leg.rz, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad(-4 )+limb_speed  , torad(-4 ), 0) +torad(-3)) +sin(limb_swing/1.3)/12*limb_speed/1.2",
+					"right_leg.rx": "if(is_riding, torad(-80), !is_riding&&!is_on_ground&&is_in_water,  sin((limb_swing/2+age)/12*pi)/1.5, clamp(torad(-5 )+limb_speed  , torad(-5 ), 0) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp( sin(limb_swing/1.3)/6 +sin(limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) -torad(head_yaw)/30",
+					"left_leg.rx": " if(is_riding,  torad(-80), !is_riding&&!is_on_ground&&is_in_water, -sin((limb_swing/2+age)/12*pi)/1.5, clamp(torad( 5 )-limb_speed  , 0, torad( 5 )) +(torad(2)+sin((limb_swing/2+age)/80*pi*2)/40) +clamp(-sin(limb_swing/1.3)/6 -sin(limb_swing/1.3)*limb_speed/1.5 +torad(10)*limb_speed, torad(-60), torad(60))) +torad(head_yaw)/30",
+					"right_leg.ry": "if(is_riding, torad( 20), !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad( 5 )-limb_speed  , 0, torad( 5 ))) +torad( 5)*limb_speed",
+					"left_leg.ry": " if(is_riding,  torad(-20), !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad(-30)+limb_speed*2, torad(-30), 0)) +torad(-5)*limb_speed",
+					"right_leg.rz": "if(is_riding, 0, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad( 0 )-limb_speed  , 0, torad( 0 )) +torad( 3)) +sin(limb_swing/1.3)/12*limb_speed/1.2",
+					"left_leg.rz": " if(is_riding,  0, !is_riding&&!is_on_ground&&is_in_water, 0                                 , clamp(torad(-4 )+limb_speed  , torad(-4 ), 0) +torad(-3)) +sin(limb_swing/1.3)/12*limb_speed/1.2",
 					"right_leg.tx": "-2",
 					"left_leg.tx": "  2 +sin((limb_swing/2+age)/80*pi*2)/6*clamp(1-limb_speed*2, 0, 1)",
 					"right_leg.ty": "0.3 +clamp(12 +sin(torad( 90)+limb_swing/1.3)*4*limb_speed +(1*limb_speed), 0, 12.2) +if(!is_riding&&!is_on_ground&&is_in_water, head.ty -sin((limb_swing/2+age)/80*pi*2)/4, 0)",
@@ -94,8 +88,8 @@
 					"uvEast": [16, 26, 22, 38],
 					"uvSouth": [36, 26, 44, 38],
 					"uvWest": [30, 26, 36, 38],
-					"uvUp": [22, 20, 30, 26],
-					"uvDown": [30, 26, 38, 20]
+					"uvUp": [30, 26, 22, 20],
+					"uvDown": [38, 20, 30, 26]
 				},
 				{
 					"coordinates": [-4, 4, -3, 8, 20, 6],
@@ -103,8 +97,8 @@
 					"uvEast": [0, 44, 6, 64],
 					"uvSouth": [20, 44, 28, 64],
 					"uvWest": [14, 44, 20, 64],
-					"uvUp": [6, 38, 14, 44],
-					"uvDown": [14, 44, 22, 38],
+					"uvUp": [14, 44, 6, 38],
+					"uvDown": [22, 38, 14, 44],
 					"sizeAdd": 0.5
 				}
 			],
@@ -120,8 +114,8 @@
 							"uvEast": [0, 8, 8, 18],
 							"uvSouth": [24, 8, 32, 18],
 							"uvWest": [16, 8, 24, 18],
-							"uvUp": [8, 0, 16, 8],
-							"uvDown": [16, 8, 24, 0]
+							"uvUp": [16, 8, 8, 0],
+							"uvDown": [24, 0, 16, 8]
 						},
 						{
 							"coordinates": [-4, 0, -4, 8, 10, 8],
@@ -129,8 +123,8 @@
 							"uvEast": [32, 8, 40, 18],
 							"uvSouth": [56, 8, 64, 18],
 							"uvWest": [48, 8, 56, 18],
-							"uvUp": [40, 0, 48, 8],
-							"uvDown": [48, 8, 56, 0],
+							"uvUp": [48, 8, 40, 0],
+							"uvDown": [56, 0, 48, 8],
 							"sizeAdd": 0.25
 						}
 					],
@@ -146,8 +140,8 @@
 									"uvEast": [24, 2, 26, 6],
 									"uvSouth": [30, 2, 32, 6],
 									"uvWest": [28, 2, 30, 6],
-									"uvUp": [26, 0, 28, 2],
-									"uvDown": [28, 2, 30, 0]
+									"uvUp": [28, 2, 26, 0],
+									"uvDown": [30, 0, 28, 2]
 								}
 							]
 						},
@@ -162,8 +156,8 @@
 									"uvEast": [13, 20, 14, 21],
 									"uvSouth": [13, 20, 14, 21],
 									"uvWest": [13, 20, 14, 21],
-									"uvUp": [14, 21, 13, 20],
-									"uvDown": [14, 21, 13, 20]
+									"uvUp": [13, 20, 14, 21],
+									"uvDown": [13, 20, 14, 21]
 								}
 							]
 						},
@@ -178,8 +172,8 @@
 									"uvEast": [10, 20, 11, 21],
 									"uvSouth": [10, 20, 11, 21],
 									"uvWest": [10, 20, 11, 21],
-									"uvUp": [11, 21, 10, 20],
-									"uvDown": [11, 21, 10, 20]
+									"uvUp": [10, 20, 11, 21],
+									"uvDown": [10, 20, 11, 21]
 								}
 							]
 						},
@@ -194,8 +188,8 @@
 									"uvEast": [8, 18, 9, 19],
 									"uvSouth": [8, 18, 9, 19],
 									"uvWest": [8, 18, 9, 19],
-									"uvUp": [9, 19, 8, 18],
-									"uvDown": [9, 19, 8, 18]
+									"uvUp": [8, 18, 9, 19],
+									"uvDown": [8, 18, 9, 19]
 								},
 								{
 									"coordinates": [1.9, 0, -1.15, 1, 1, 0.25],
@@ -203,8 +197,8 @@
 									"uvEast": [8, 19, 9, 20],
 									"uvSouth": [8, 19, 9, 20],
 									"uvWest": [8, 19, 9, 20],
-									"uvUp": [9, 20, 8, 19],
-									"uvDown": [9, 20, 8, 19]
+									"uvUp": [8, 19, 9, 20],
+									"uvDown": [8, 19, 9, 20]
 								},
 								{
 									"coordinates": [0.9, 1, -1.15, 1, 1, 0.25],
@@ -212,8 +206,8 @@
 									"uvEast": [9, 18, 10, 19],
 									"uvSouth": [9, 18, 10, 19],
 									"uvWest": [9, 18, 10, 19],
-									"uvUp": [10, 19, 9, 18],
-									"uvDown": [10, 19, 9, 18]
+									"uvUp": [9, 18, 10, 19],
+									"uvDown": [9, 18, 10, 19]
 								},
 								{
 									"coordinates": [0.9, 0, -1.15, 1, 1, 0.25],
@@ -221,8 +215,8 @@
 									"uvEast": [9, 19, 10, 20],
 									"uvSouth": [9, 19, 10, 20],
 									"uvWest": [9, 19, 10, 20],
-									"uvUp": [10, 20, 9, 19],
-									"uvDown": [10, 20, 9, 19]
+									"uvUp": [9, 19, 10, 20],
+									"uvDown": [9, 19, 10, 20]
 								},
 								{
 									"coordinates": [-0.1, 0, -1.15, 1, 1, 0.25],
@@ -230,8 +224,8 @@
 									"uvEast": [10, 19, 11, 20],
 									"uvSouth": [10, 19, 11, 20],
 									"uvWest": [10, 19, 11, 20],
-									"uvUp": [11, 20, 10, 19],
-									"uvDown": [11, 20, 10, 19]
+									"uvUp": [10, 19, 11, 20],
+									"uvDown": [10, 19, 11, 20]
 								}
 							]
 						},
@@ -246,8 +240,8 @@
 									"uvEast": [15, 18, 16, 19],
 									"uvSouth": [15, 18, 16, 19],
 									"uvWest": [15, 18, 16, 19],
-									"uvUp": [16, 19, 15, 18],
-									"uvDown": [16, 19, 15, 18]
+									"uvUp": [15, 18, 16, 19],
+									"uvDown": [15, 18, 16, 19]
 								},
 								{
 									"coordinates": [-1.9, 1, -0.15, 1, 1, 0.25],
@@ -255,8 +249,8 @@
 									"uvEast": [14, 18, 15, 19],
 									"uvSouth": [14, 18, 15, 19],
 									"uvWest": [14, 18, 15, 19],
-									"uvUp": [15, 19, 14, 18],
-									"uvDown": [15, 19, 14, 18]
+									"uvUp": [14, 18, 15, 19],
+									"uvDown": [14, 18, 15, 19]
 								},
 								{
 									"coordinates": [-2.9, 0, -0.15, 1, 1, 0.25],
@@ -264,8 +258,8 @@
 									"uvEast": [15, 19, 16, 20],
 									"uvSouth": [15, 19, 16, 20],
 									"uvWest": [15, 19, 16, 20],
-									"uvUp": [16, 20, 15, 19],
-									"uvDown": [16, 20, 15, 19]
+									"uvUp": [15, 19, 16, 20],
+									"uvDown": [15, 19, 16, 20]
 								},
 								{
 									"coordinates": [-1.9, 0, -0.15, 1, 1, 0.25],
@@ -273,8 +267,8 @@
 									"uvEast": [14, 19, 15, 20],
 									"uvSouth": [14, 19, 15, 20],
 									"uvWest": [14, 19, 15, 20],
-									"uvUp": [15, 20, 14, 19],
-									"uvDown": [15, 20, 14, 19]
+									"uvUp": [14, 19, 15, 20],
+									"uvDown": [14, 19, 15, 20]
 								},
 								{
 									"coordinates": [-0.9, 0, -0.15, 1, 1, 0.25],
@@ -282,8 +276,8 @@
 									"uvEast": [13, 19, 14, 20],
 									"uvSouth": [13, 19, 14, 20],
 									"uvWest": [13, 19, 14, 20],
-									"uvUp": [14, 20, 13, 19],
-									"uvDown": [14, 20, 13, 19]
+									"uvUp": [13, 19, 14, 20],
+									"uvDown": [13, 19, 14, 20]
 								}
 							]
 						}
@@ -303,8 +297,8 @@
 					"uvEast": [40, 50, 44, 62],
 					"uvSouth": [52, 50, 56, 62],
 					"uvWest": [48, 50, 52, 62],
-					"uvUp": [44, 46, 48, 50],
-					"uvDown": [48, 50, 52, 46]
+					"uvUp": [48, 50, 44, 46],
+					"uvDown": [52, 46, 48, 50]
 				}
 			]
 		},
@@ -327,8 +321,8 @@
 							"uvEast": [40, 50, 44, 62],
 							"uvSouth": [52, 50, 56, 62],
 							"uvWest": [48, 50, 52, 62],
-							"uvUp": [44, 46, 48, 50],
-							"uvDown": [48, 50, 52, 46]
+							"uvUp": [48, 50, 44, 46],
+							"uvDown": [52, 46, 48, 50]
 						}
 					]
 				}
@@ -346,8 +340,8 @@
 					"uvEast": [0, 26, 4, 38],
 					"uvSouth": [12, 26, 16, 38],
 					"uvWest": [8, 26, 12, 38],
-					"uvUp": [4, 22, 8, 26],
-					"uvDown": [8, 26, 12, 22]
+					"uvUp": [8, 26, 4, 22],
+					"uvDown": [12, 22, 8, 26]
 				}
 			]
 		},
@@ -370,8 +364,8 @@
 							"uvEast": [0, 26, 4, 38],
 							"uvSouth": [12, 26, 16, 38],
 							"uvWest": [8, 26, 12, 38],
-							"uvUp": [4, 22, 8, 26],
-							"uvDown": [8, 26, 12, 22]
+							"uvUp": [8, 26, 4, 22],
+							"uvDown": [12, 22, 8, 26]
 						}
 					]
 				}

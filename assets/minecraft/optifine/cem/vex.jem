@@ -12,6 +12,11 @@
 					"id": "Created_by_FreshLX_for_Fresh_Animations",
 					"invertAxis": "xy",
 					"translate": [0, 0, 0]
+				},
+				{
+					"id": "right",
+					"invertAxis": "xy",
+					"translate": [0, 0, 0]
 				}
 			],
 			"animations": [
@@ -27,8 +32,8 @@
 					"body.tx": "sin((limb_swing/2+age)/60 * pi-torad(90))*2",
 					"body.ty": "sin((limb_swing/2+age)/20 * pi-torad(90))",
 					"body.tz": "sin((limb_swing/2+age)/100*-pi)/4",
-					"right_arm.rx": "if(is_riding, torad(-45), right_arm.rx>=torad(120), torad(200), 0) +(torad(70)*limb_speed) +sin((limb_swing/2+age)/20*pi+torad(60))/20 +(head_yaw/57.5)/4",
-					"left_arm.rx": " if(is_riding, torad(-45),  left_arm.rx>=torad(120), torad(200), 0) +(torad(70)*limb_speed) +sin((limb_swing/2+age)/20*pi-torad(60))/20 -(head_yaw/57.5)/4",
+					"right_arm.rx": "if(is_riding, torad(-45), 0, torad(200), 0) +(torad(70)*limb_speed) +sin((limb_swing/2+age)/20*pi+torad(60))/20 +(head_yaw/57.5)/4",
+					"left_arm.rx": " if(is_riding, torad(-45),  0, torad(200), 0) +(torad(70)*limb_speed) +sin((limb_swing/2+age)/20*pi-torad(60))/20 -(head_yaw/57.5)/4",
 					"right_arm.ry": "if(right_arm.rx>=torad(120), torad( 20),   torad(-15) +sin((limb_swing/2+age)/20*pi+torad(60))/20 +torad(-10)*limb_speed)",
 					"left_arm.ry": " if( left_arm.rx>=torad(120), torad(-20),   torad( 15) +sin((limb_swing/2+age)/20*pi-torad(60))/20 +torad( 10)*limb_speed)",
 					"right_arm.rz": "if(right_arm.rx>=torad(120), torad(-20), -(torad(-15) +sin((limb_swing/2+age)/20*pi+torad(60))/20 +torad(-10)*limb_speed)/2) +body.rz",
@@ -62,8 +67,8 @@
 					"uvEast": [16, 20, 20, 32],
 					"uvSouth": [32, 20, 40, 32],
 					"uvWest": [28, 20, 32, 32],
-					"uvUp": [20, 16, 28, 20],
-					"uvDown": [28, 20, 36, 16]
+					"uvUp": [28, 20, 20, 16],
+					"uvDown": [36, 16, 28, 20]
 				}
 			],
 			"submodels": [
@@ -78,8 +83,8 @@
 							"uvEast": [0, 8, 8, 16],
 							"uvSouth": [24, 8, 32, 16],
 							"uvWest": [16, 8, 24, 16],
-							"uvUp": [8, 0, 16, 8],
-							"uvDown": [16, 8, 24, 0]
+							"uvUp": [16, 8, 8, 0],
+							"uvDown": [24, 0, 16, 8]
 						}
 					],
 					"submodels": [
@@ -94,8 +99,8 @@
 									"uvEast": [15, 16, 16, 17],
 									"uvSouth": [15, 16, 16, 17],
 									"uvWest": [15, 16, 16, 17],
-									"uvUp": [16, 17, 15, 16],
-									"uvDown": [16, 17, 15, 16]
+									"uvUp": [15, 16, 16, 17],
+									"uvDown": [15, 16, 16, 17]
 								},
 								{
 									"coordinates": [0.05, 1, -0.25, 1, 1, 0.25],
@@ -103,8 +108,8 @@
 									"uvEast": [14, 16, 15, 17],
 									"uvSouth": [14, 16, 15, 17],
 									"uvWest": [14, 16, 15, 17],
-									"uvUp": [15, 17, 14, 16],
-									"uvDown": [15, 17, 14, 16]
+									"uvUp": [14, 16, 15, 17],
+									"uvDown": [14, 16, 15, 17]
 								},
 								{
 									"coordinates": [0.05, 0, -0.25, 1, 1, 0.25],
@@ -112,8 +117,8 @@
 									"uvEast": [14, 17, 15, 18],
 									"uvSouth": [14, 17, 15, 18],
 									"uvWest": [14, 17, 15, 18],
-									"uvUp": [15, 18, 14, 17],
-									"uvDown": [15, 18, 14, 17]
+									"uvUp": [14, 17, 15, 18],
+									"uvDown": [14, 17, 15, 18]
 								},
 								{
 									"coordinates": [-0.95, 0, -0.25, 1, 1, 0.25],
@@ -121,8 +126,8 @@
 									"uvEast": [15, 17, 16, 18],
 									"uvSouth": [15, 17, 16, 18],
 									"uvWest": [15, 17, 16, 18],
-									"uvUp": [16, 18, 15, 17],
-									"uvDown": [16, 18, 15, 17]
+									"uvUp": [15, 17, 16, 18],
+									"uvDown": [15, 17, 16, 18]
 								},
 								{
 									"coordinates": [1.05, 0, -0.25, 1, 1, 0.25],
@@ -130,8 +135,8 @@
 									"uvEast": [13, 17, 14, 18],
 									"uvSouth": [13, 17, 14, 18],
 									"uvWest": [13, 17, 14, 18],
-									"uvUp": [14, 18, 13, 17],
-									"uvDown": [14, 18, 13, 17]
+									"uvUp": [13, 17, 14, 18],
+									"uvDown": [13, 17, 14, 18]
 								}
 							]
 						},
@@ -146,8 +151,8 @@
 									"uvEast": [9, 16, 10, 17],
 									"uvSouth": [9, 16, 10, 17],
 									"uvWest": [9, 16, 10, 17],
-									"uvUp": [10, 17, 9, 16],
-									"uvDown": [10, 17, 9, 16]
+									"uvUp": [9, 16, 10, 17],
+									"uvDown": [9, 16, 10, 17]
 								},
 								{
 									"coordinates": [-0.05, 1, -0.25, 1, 1, 0.25],
@@ -155,8 +160,8 @@
 									"uvEast": [8, 16, 9, 17],
 									"uvSouth": [8, 16, 9, 17],
 									"uvWest": [8, 16, 9, 17],
-									"uvUp": [9, 17, 8, 16],
-									"uvDown": [9, 17, 8, 16]
+									"uvUp": [8, 16, 9, 17],
+									"uvDown": [8, 16, 9, 17]
 								},
 								{
 									"coordinates": [-0.05, 0, -0.25, 1, 1, 0.25],
@@ -164,8 +169,8 @@
 									"uvEast": [8, 17, 9, 18],
 									"uvSouth": [8, 17, 9, 18],
 									"uvWest": [8, 17, 9, 18],
-									"uvUp": [9, 18, 8, 17],
-									"uvDown": [9, 18, 8, 17]
+									"uvUp": [8, 17, 9, 18],
+									"uvDown": [8, 17, 9, 18]
 								},
 								{
 									"coordinates": [-1.05, 0, -0.25, 1, 1, 0.25],
@@ -173,8 +178,8 @@
 									"uvEast": [9, 17, 10, 18],
 									"uvSouth": [9, 17, 10, 18],
 									"uvWest": [9, 17, 10, 18],
-									"uvUp": [10, 18, 9, 17],
-									"uvDown": [10, 18, 9, 17]
+									"uvUp": [9, 17, 10, 18],
+									"uvDown": [9, 17, 10, 18]
 								},
 								{
 									"coordinates": [-2.05, 0, -0.25, 1, 1, 0.25],
@@ -182,8 +187,8 @@
 									"uvEast": [10, 17, 11, 18],
 									"uvSouth": [10, 17, 11, 18],
 									"uvWest": [10, 17, 11, 18],
-									"uvUp": [11, 18, 10, 17],
-									"uvDown": [11, 18, 10, 17]
+									"uvUp": [10, 17, 11, 18],
+									"uvDown": [10, 17, 11, 18]
 								}
 							]
 						}
@@ -200,8 +205,8 @@
 							"uvEast": [32, 4, 36, 14],
 							"uvSouth": [46, 4, 52, 14],
 							"uvWest": [42, 4, 46, 14],
-							"uvUp": [36, 0, 42, 4],
-							"uvDown": [42, 4, 48, 0]
+							"uvUp": [42, 4, 36, 0],
+							"uvDown": [48, 0, 42, 4]
 						}
 					]
 				},
@@ -216,8 +221,8 @@
 							"uvEast": [0, 33, 1, 45],
 							"uvSouth": [22, 33, 42, 45],
 							"uvWest": [21, 33, 22, 45],
-							"uvUp": [1, 32, 21, 33],
-							"uvDown": [21, 33, 41, 32]
+							"uvUp": [21, 33, 1, 32],
+							"uvDown": [41, 32, 21, 33]
 						}
 					]
 				},
@@ -233,8 +238,8 @@
 							"uvEast": [0, 33, 1, 45],
 							"uvSouth": [22, 33, 42, 45],
 							"uvWest": [21, 33, 22, 45],
-							"uvUp": [1, 32, 21, 33],
-							"uvDown": [21, 33, 41, 32]
+							"uvUp": [21, 33, 1, 32],
+							"uvDown": [41, 32, 21, 33]
 						}
 					]
 				}
@@ -276,8 +281,8 @@
 					"uvEast": [40, 20, 44, 32],
 					"uvSouth": [52, 20, 56, 32],
 					"uvWest": [48, 20, 52, 32],
-					"uvUp": [44, 16, 48, 20],
-					"uvDown": [48, 20, 52, 16]
+					"uvUp": [48, 20, 44, 16],
+					"uvDown": [52, 16, 48, 20]
 				}
 			]
 		},
@@ -294,8 +299,8 @@
 					"uvEast": [52, 20, 48, 32],
 					"uvSouth": [56, 20, 52, 32],
 					"uvWest": [44, 20, 40, 32],
-					"uvUp": [48, 16, 44, 20],
-					"uvDown": [52, 20, 48, 16]
+					"uvUp": [44, 20, 48, 16],
+					"uvDown": [48, 16, 52, 20]
 				}
 			]
 		}
