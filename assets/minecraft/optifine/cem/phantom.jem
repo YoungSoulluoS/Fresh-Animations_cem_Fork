@@ -119,8 +119,8 @@
 					"body2.rx": "clamp( torad(head_pitch), -torad(90), torad(90))*clamp(1-limb_speed,   0, 1) +sin((age-(limb_swing/1.5))/2  )/6*clamp(1-limb_speed*3 -sin((age-(limb_swing/1.5))/10)*limb_speed*3, 0  , 1.5) -torad(20) +clamp(torad(20)*limb_speed*3, 0, torad(20))",
 					"body2.rz": "clamp( torad(head_yaw)*6, -torad(30), torad(30))                             +cos((age-(limb_swing/1.5))/2/5)/6",
 					"body2.tx": "sin((age-(limb_swing/1.5))/2/5)*2",
-					"body2.ty": "sin((age-(limb_swing/1.5))/2  )/2*clamp(1-limb_speed -sin((age-(limb_swing/1.5))/10)*limb_speed*3, 0.2, 1.5)",
-					"body2.tz": "sin((age-(limb_swing/1.5))/2  )*2*clamp(             -sin((age-(limb_swing/1.5))/10)*limb_speed*3, 0  , 1.5)"
+					"body2.ty": "15 +sin((age-(limb_swing/1.5))/2  )/2*clamp(1-limb_speed -sin((age-(limb_swing/1.5))/10)*limb_speed*3, 0.2, 1.5)",
+					"body2.tz": "-7 +sin((age-(limb_swing/1.5))/2  )*2*clamp(             -sin((age-(limb_swing/1.5))/10)*limb_speed*3, 0  , 1.5)"
 				},
 				{
 					"tail3.rx": "-cos((age-(limb_swing/1.5))/2)/6 +clamp(torad(-60) +torad(-20)+limb_speed*3, torad(-20), 0)",
